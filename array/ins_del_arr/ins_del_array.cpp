@@ -5,71 +5,69 @@ using namespace std;
 int main()
 {
     int n, b, d = 0;
-    cout << "enter size of array" << endl;
+    cout << "Enter size of array: ";
     cin >> n;
     int a[100];
-    cout << "enter elements of array" << endl;
+    cout << "\nEnter elements of array: ";
     for (int i = 0; i < n; i++)
     {
         cin >> a[i];
     }
     do
     {
-        cout << "enter your choice" << endl
+        cout << "\nEnter your choice:"
              << endl
-             << "choose 1 for insertion" << endl
-             << "choose 2 for  deletion " << endl
-             << " choose 3 to exit " << endl;
+             << "Choose 1 for Insertion" << endl
+             << "Choose 2 for Deletion " << endl
+             << "Choose 3 to Exit " << endl;
         cin >> b;
         switch (b)
         {
         case 1:
             int c;
-            cout << "enter the new number to be inserted" << endl;
+            cout << "\nEnter the new number to be inserted:";
             cin >> c;
             a[n] = c;
             n++;
-            cout << "array after insertion" << endl;
+            cout << "\nArray after insertion: ";
             for (int i = 0; i < n; i++)
             {
-                cout << a[i];
+                cout << a[i] << " ";
             }
-            cout << endl;
+            cout << "\n";
             break;
+
         case (2):
-            cout << "enter the number to be deleted" << endl;
+            int i;
+            cout << "\nEnter the number to be deleted: ";
             cin >> c;
-            for (int i = 0; i < n; i++)
+
+            for (i = 0; i < n; i++)
             {
-                for (int i = 0; i < n; i++)
+                if (c == a[i])
                 {
-                    if (c == a[i])
+                    for (int j = i; j < n; j++)
                     {
-                        for (int j = i; j < n; j++)
-                        {
-                            a[j] = a[j + 1];
-                        }
-                        n--;
-                        cout << "array after deletion" << endl;
-                        for (int i = 0; i < n; i++)
-                        {
-                            cout << a[i];
-                        }
-                        cout << endl;
-                        break;
+                        a[j] = a[j + 1];
                     }
-                    else if (i == n)
-                    {
-                        cout << "element not found";
-                    }
+                    n--;
+                    break;
                 }
             }
-            n--;
+            if (c == i)
+            {
+                cout << "\nElement not found";
+            }
+
+            cout << "\nArray after deletion: ";
+            for (i = 0; i < n; i++)
+            {
+                cout << a[i] << " ";
+            }
             break;
-        case 3:
-            break;
+            cout << "\n";
         default:
-            cout << "invalid choice" << endl;
+            cout << "\nInvalid Choice" << endl;
         }
     } while (b != 3);
     return 0;
